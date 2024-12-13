@@ -1,11 +1,16 @@
 "use strict";
 
+function handleEnterAsButtonClick(event) {
+    event.preventDefault();
+    translateText();
+}
+
 async function translateText() {
     const text = document.getElementById('text').value;
     const errorElement = document.getElementById('error');
     const resultElement = document.getElementById('result');
     const outputElement = document.getElementById('output');
-    outputElement.style.display = 'none'; 
+    outputElement.style.display = 'none';
     resultElement.textContent = '';
 
     errorElement.style.display = 'none';

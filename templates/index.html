@@ -9,7 +9,7 @@
 </head>
 <div class="container">
     <h1>Translate Text from English to Finnish</h1>
-    <form id="translationForm">
+    <form id="translationForm" onsubmit="handleEnterAsButtonClick(event)">
         <label for="text">Enter text in English:</label><br>
         <input type="text" id="text" name="text" required><br>
         <p id="error"></p>
