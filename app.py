@@ -19,6 +19,7 @@ def translate():
 
     try:
         translated_text = pipe(text, max_length=512)[0]['translation_text']
+        # print(translated_text)
         return jsonify({"translated_text": translated_text})
     except Exception as e:
         return jsonify({"error": str(e)}), 500

@@ -34,6 +34,14 @@ async function translateText() {
 
         const data = await response.json();
 
+        // Check for error response containing only dots (When input is not in Latin letters)
+        if (data.translated_text && /^[.\s]+$/.test(data.translated_text.trim())) {
+            errorElement.textContent = 'Invalid input. Please enter text using Latin letters.';
+            errorElement.style.display = 'block';
+            outputElement.style.display = 'none';
+            return;
+        }
+
         // Update the translated_text or show an error
         if (data.error) {
             errorElement.textContent = data.error;
